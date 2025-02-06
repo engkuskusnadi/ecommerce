@@ -13,8 +13,21 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    
+            
+                    @if ($role === 'superadmin')
+                        <div class="alert alert-success">
+                            This is the Superadmin Dashboard. You have full access to the system.
+                        </div>
+                    @elseif ($role === 'admin')
+                        <div class="alert alert-info">
+                            This is the Admin Dashboard. You have limited access to the system.
+                        </div>
+                    @else
+                        <div class="alert alert-warning">
+                            This is the User Dashboard. You have restricted access to the system.
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

@@ -23,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // Ambil role pengguna
+        $userRole = auth()->user()->role;
+        return view('home', ['role' => $userRole]);
     }
 }
